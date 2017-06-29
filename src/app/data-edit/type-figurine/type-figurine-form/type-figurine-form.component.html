@@ -1,0 +1,19 @@
+<form action="" #dataForm="ngForm">
+  <div class="form-group">
+    <label class="label-form">Code</label>
+    <input type="text" class="form-control" name="nom" required [(ngModel)]="formData.code">
+  </div>
+  <div class="form-group">
+    <label class="label-form">Description</label>
+    <textarea type="text" class="form-control" name="description" [(ngModel)]="formData.description"></textarea>
+  </div>
+  <button *ngIf="!formData.newType" class="col-md-3 col-md-offset-2 btn btn-danger " (click)="delete()">Supprimer</button>
+  <button *ngIf="!formData.newType" class="col-md-3 col-md-offset-2 btn btn-primary " [disabled]="dataForm.invalid" (click)="update()">Enregistrer</button>
+  <button *ngIf="formData.newType" class="col-md-4 div col-md-offset-4 btn btn-primary " [disabled]="dataForm.invalid" (click)="create()">Enregistrer</button>
+</form>
+<p-confirmDialog width="425" #cd>
+  <p-footer>
+    <button type="button" pButton icon="fa-close" label="Non" (click)="cd.reject()"></button>
+    <button type="button" pButton icon="fa-check" label="Oui" (click)="cd.accept()"></button>
+  </p-footer>
+</p-confirmDialog>

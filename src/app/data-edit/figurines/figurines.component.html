@@ -1,0 +1,11 @@
+<div class=" text-right">
+  <button class="btn btn-primary" (click)="new()">Nouvelle Unité</button>
+</div>
+<div class="">
+  <app-data-table [cols]="cols" [items]="figurines" (itemSelected)="dataSelected($event)" ></app-data-table>
+</div>
+
+<div class="z-depth-1 data-form" *ngIf="selectedFigurines">
+  <app-figurine-form [formData]="selectedFigurines" *ngIf="selectedFigurines" [newFig]="newFig" (saveEvent)="save($event)"></app-figurine-form>
+
+</div>

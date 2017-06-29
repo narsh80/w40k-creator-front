@@ -1,0 +1,11 @@
+<div class=" text-right">
+  <button class="btn btn-primary" (click)="new()">Nouveau type de figurine</button>
+</div>
+<div class="">
+  <app-data-table [cols]="cols" [items]="options" (itemSelected)="dataSelected($event)" [dataKey]="dataKey"></app-data-table>
+</div>
+
+<div class="z-depth-1 data-form" *ngIf="selectedTypeFigurine">
+  <app-type-figurine-form [formData]="selectedTypeFigurine" (saveEvent)="save($event)"></app-type-figurine-form>
+
+</div>
