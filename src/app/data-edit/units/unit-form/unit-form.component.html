@@ -1,34 +1,34 @@
 <form action="" #dataForm="ngForm">
-  <div class="col-md-3">
-    <div class="form-group" [class.has-error]="nom.invalid">
-      <label class="control-label">*Nom de l'unité</label>
-      <input type="text" class="form-control" name="nom" required [(ngModel)]="formData.nom" #nom="ngModel">
+    <div class="col-md-3">
+        <div class="form-group" [class.has-error]="nom.invalid">
+            <label class="control-label">*Nom de l'unité</label>
+            <input type="text" class="form-control" name="nom" required [(ngModel)]="formData.nom" #nom="ngModel">
+        </div>
+        <div class="form-group" [class.has-error]="typeFigurine.invalid">
+            <label class="control-label">*Type de l'unité</label>
+            <select type="text" class="form-control" name="typeFigurine" required [(ngModel)]="formData.typeFigurine" #typeFigurine="ngModel">
+                <option *ngFor="let type of typeUnits" value="{{type.code}}">{{type.code}}</option>
+            </select>
+        </div>
+        <div class="form-group" [class.has-error]="army.invalid">
+            <label class="control-label">*Armée</label>
+            <select type="text" class="form-control" name="idArmySelected" required [(ngModel)]="idArmySelected" (change)="setArmy()" #army="ngModel">
+                <option *ngFor="let army of armies" value="{{army.id}}">{{army.nom}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Description de l'unité</label>
+            <textarea type="text" class="form-control" name="description" [(ngModel)]="formData.description"></textarea>
+        </div>
     </div>
-    <div class="form-group" [class.has-error]="typeFigurine.invalid">
-      <label class="control-label">*Type de l'unité</label>
-      <select type="text" class="form-control" name="typeFigurine" required [(ngModel)]="formData.typeFigurine" #typeFigurine="ngModel">
-        <option *ngFor="let type of typeUnits" value="{{type.code}}">{{type.code}}</option>
-      </select>
+    <div class="col-md-9">
+        <app-figurines *ngIf="dataForm.valid" [figurines]="formData.figurines" (addFigEvent)="addFig($event)" (delFigEvent)="delFig($event)" (updateFigEvent)="updateFig($event)"></app-figurines>
+        <div *ngIf="dataForm.invalid">Veuillez saisir toutes les données obligatoires de l'unité pour pouvoir y ajouter des figurines</div>
     </div>
-    <div class="form-group" [class.has-error]="army.invalid">
-      <label class="control-label">*Armée</label>
-      <select type="text" class="form-control" name="idArmySelected" required [(ngModel)]="idArmySelected" (change)="setArmy()" #army="ngModel">
-        <option *ngFor="let army of armies" value="{{army.id}}">{{army.nom}}</option>
-      </select>
+    <div class="col-md-12">
+        <div>{{formData | json}}</div>
+        <button *ngIf="formData.id" class="col-md-3 col-md-offset-2 btn btn-danger " (click)="delete()">Supprimer</button>
+        <button *ngIf="formData.id" class="col-md-3 col-md-offset-2 btn btn-primary " [disabled]="isFormInvalid(dataForm) " (click)="update()">Enregistrer</button>
+        <button *ngIf="!formData.id" class="col-md-4 div col-md-offset-4 btn btn-primary " [disabled]="isFormInvalid(dataForm)" (click)="create()">Enregistrer</button>
     </div>
-    <div class="form-group">
-      <label class="control-label">Description de l'unité</label>
-      <textarea type="text" class="form-control" name="description" [(ngModel)]="formData.description"></textarea>
-    </div>
-  </div>
-  <div class="col-md-9">
-    <app-figurines *ngIf="dataForm.valid" [figurines]="formData.figurines" (addFigEvent)="addFig($event)" (delFigEvent)="delFig($event)" (updateFigEvent)="updateFig($event)"></app-figurines>
-    <div *ngIf="dataForm.invalid">Veuillez saisir toutes les données obligatoires de l'unité pour pouvoir y ajouter des figurines</div>
-  </div>
-  <div class="col-md-12">
-    <div>{{formData | json}}</div>
-    <button *ngIf="formData.id" class="col-md-3 col-md-offset-2 btn btn-danger " (click)="delete()">Supprimer</button>
-    <button *ngIf="formData.id" class="col-md-3 col-md-offset-2 btn btn-primary " [disabled]="isFormInvalid(dataForm) " (click)="update()">Enregistrer</button>
-    <button *ngIf="!formData.id" class="col-md-4 div col-md-offset-4 btn btn-primary " [disabled]="isFormInvalid(dataForm)" (click)="create()">Enregistrer</button>
-  </div>
 </form>

@@ -1,4 +1,4 @@
 export class DataColunm {
-  field: string;
-  header: string;
+    field: string;
+    header: string;
 }

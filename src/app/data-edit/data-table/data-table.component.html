@@ -1,5 +1,5 @@
 <div class="">
-  <p-dataTable [value]="items" selectionMode="single" [(selection)]="selectedItem" dataKey="{{dataKey}}" (onRowSelect)="selectItem($event)">
-    <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header" [style]="col.style"></p-column>
-  </p-dataTable>
+    <p-dataTable [value]="items" selectionMode="single" [(selection)]="selectedItem" dataKey="{{dataKey}}" (onRowSelect)="selectItem($event)">
+        <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header" [style]="col.style"></p-column>
+    </p-dataTable>
 </div>

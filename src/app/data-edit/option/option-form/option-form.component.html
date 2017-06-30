@@ -1,86 +1,86 @@
 <form action="" #dataForm="ngForm">
-  <div class="col-md-6">
-    <div class="form-group">
-      <label class="label-form">Nom de l'options</label>
-      <input type="text" class="form-control" name="nom" required [(ngModel)]="option.nom">
-    </div>
-    <div class="form-group">
-      <label class="label-form">Description</label>
-      <input type="text" class="form-control" name="description" [(ngModel)]="option.description">
-    </div>
-    <div class="form-group">
-      <label class="label-form">Type d'options</label>
-      <select type="text" class="form-control" name="idTypeOption" required [(ngModel)]="option.typeOption">
-        <option *ngFor="let typeOption of typeOptions" value="{{typeOption}}">{{typeOption}}</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label class="label-form">type</label>
-      <input type="text" class="form-control" name="type" [(ngModel)]="option.type">
-    </div>
-    <div class="form-group">
-      <label class="label-form">Rêgle spéciale</label>
-      <input type="text" class="form-control" name="abilitie" [(ngModel)]="option.abilitie">
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="form-group">
-      <label class="label-form">distance</label>
-      <input type="text" class="form-control" name="distance" [(ngModel)]="option.distance">
-    </div>
-    <div class="form-group">
-      <label class="label-form">Force</label>
-      <input type="text" class="form-control" name="strength" required [(ngModel)]="option.strength">
-    </div>
-    <div class="form-group">
-      <label class="label-form">Pénétration d'armure</label>
-      <input type="text" class="form-control" name="ap" required [(ngModel)]="option.ap">
-    </div>
-    <div class="form-group">
-      <label class="label-form">Dégat</label>
-      <input type="text" class="form-control" name="d" required [(ngModel)]="option.d">
-    </div>
-  </div>
-
-  <div class="col-md-12">
-    <p-dataTable [value]="option.armyOptions" selectionMode="single" (onRowSelect)="onRowSelect($event)" [paginator]="true" rows="15" [responsive]="true">
-      <p-header>Points par armée</p-header>
-      <p-column field="army.nom" header="Armée"></p-column>
-      <p-column field="value" header="Point"></p-column>
-      <p-footer>
-        <div class="ui-helper-clearfix" style="width:100%">
-          <button type="button" pButton icon="fa-plus" style="float:left" (click)="showDialogToAdd()" label="Ajouter"></button>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="label-form">Nom de l'options</label>
+            <input type="text" class="form-control" name="nom" required [(ngModel)]="option.nom">
         </div>
-      </p-footer>
-    </p-dataTable>
-  </div>
+        <div class="form-group">
+            <label class="label-form">Description</label>
+            <input type="text" class="form-control" name="description" [(ngModel)]="option.description">
+        </div>
+        <div class="form-group">
+            <label class="label-form">Type d'options</label>
+            <select type="text" class="form-control" name="idTypeOption" required [(ngModel)]="option.typeOption">
+                <option *ngFor="let typeOption of typeOptions" value="{{typeOption}}">{{typeOption}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="label-form">type</label>
+            <input type="text" class="form-control" name="type" [(ngModel)]="option.type">
+        </div>
+        <div class="form-group">
+            <label class="label-form">Rêgle spéciale</label>
+            <input type="text" class="form-control" name="abilitie" [(ngModel)]="option.abilitie">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="label-form">distance</label>
+            <input type="text" class="form-control" name="distance" [(ngModel)]="option.distance">
+        </div>
+        <div class="form-group">
+            <label class="label-form">Force</label>
+            <input type="text" class="form-control" name="strength" required [(ngModel)]="option.strength">
+        </div>
+        <div class="form-group">
+            <label class="label-form">Pénétration d'armure</label>
+            <input type="text" class="form-control" name="ap" required [(ngModel)]="option.ap">
+        </div>
+        <div class="form-group">
+            <label class="label-form">Dégat</label>
+            <input type="text" class="form-control" name="d" required [(ngModel)]="option.d">
+        </div>
+    </div>
 
-  <button *ngIf="option.id" class="col-md-3 col-md-offset-2 btn btn-danger " (click)="delete()">Supprimer</button>
-  <button *ngIf="option.id" class="col-md-3 col-md-offset-2 btn btn-primary " [disabled]="dataForm.invalid || option.armyOptions.length === 0" (click)="update()">Enregistrer</button>
-  <button *ngIf="!option.id" class="col-md-4 div col-md-offset-4 btn btn-primary " [disabled]="dataForm.invalid || option.armyOptions.length === 0" (click)="create()">Enregistrer</button>
+    <div class="col-md-12">
+        <p-dataTable [value]="option.armyOptions" selectionMode="single" (onRowSelect)="onRowSelect($event)" [paginator]="true" rows="15" [responsive]="true">
+            <p-header>Points par armée</p-header>
+            <p-column field="army.nom" header="Armée"></p-column>
+            <p-column field="value" header="Point"></p-column>
+            <p-footer>
+                <div class="ui-helper-clearfix" style="width:100%">
+                    <button type="button" pButton icon="fa-plus" style="float:left" (click)="showDialogToAdd()" label="Ajouter"></button>
+                </div>
+            </p-footer>
+        </p-dataTable>
+    </div>
+
+    <button *ngIf="option.id" class="col-md-3 col-md-offset-2 btn btn-danger " (click)="delete()">Supprimer</button>
+    <button *ngIf="option.id" class="col-md-3 col-md-offset-2 btn btn-primary " [disabled]="dataForm.invalid || option.armyOptions.length === 0" (click)="update()">Enregistrer</button>
+    <button *ngIf="!option.id" class="col-md-4 div col-md-offset-4 btn btn-primary " [disabled]="dataForm.invalid || option.armyOptions.length === 0" (click)="create()">Enregistrer</button>
 </form>
 
 <p-dialog header="Car Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true">
-  <form action="" #armyForm="ngForm">
-    <div class="ui-grid ui-grid-responsive ui-fluid">
-      <div class="ui-grid-row">
-        <div class="ui-grid-col-4"><label>Armée</label></div>
-        <div class="ui-grid-col-8">
-          <select type="text" class="form-control" name="idArmySelected" required [(ngModel)]="armyOptionSelected.idArmy" (change)="setArmy($event)">
-            <option *ngFor="let army of armys" value='{{army.id}}'>{{army.nom}}</option>
-          </select>
+    <form action="" #armyForm="ngForm">
+        <div class="ui-grid ui-grid-responsive ui-fluid">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4"><label>Armée</label></div>
+                <div class="ui-grid-col-8">
+                    <select type="text" class="form-control" name="idArmySelected" required [(ngModel)]="armyOptionSelected.idArmy" (change)="setArmy($event)">
+                        <option *ngFor="let army of armys" value='{{army.id}}'>{{army.nom}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4"><label>Point</label></div>
+                <div class="ui-grid-col-8"><input pInputText name="value" [(ngModel)]="armyOptionSelected.value"/></div>
+            </div>
         </div>
-      </div>
-      <div class="ui-grid-row">
-        <div class="ui-grid-col-4"><label >Point</label></div>
-        <div class="ui-grid-col-8"><input pInputText name="value" [(ngModel)]="armyOptionSelected.value"/></div>
-      </div>
-    </div>
-    <p-footer>
-      <div class="ui-dialog-buttonpane ui-helper-clearfix">
-        <button type="button" pButton icon="fa-close" (click)="deleteArmyOption()" label="Delete"></button>
-        <button type="button" pButton icon="fa-check" [disabled]="armyForm.invalid" (click)="saveArmyOption()" label="Save"></button>
-      </div>
-    </p-footer>
-  </form>
+        <p-footer>
+            <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                <button type="button" pButton icon="fa-close" (click)="deleteArmyOption()" label="Delete"></button>
+                <button type="button" pButton icon="fa-check" [disabled]="armyForm.invalid" (click)="saveArmyOption()" label="Save"></button>
+            </div>
+        </p-footer>
+    </form>
 </p-dialog>

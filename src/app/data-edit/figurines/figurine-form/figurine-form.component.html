@@ -1,80 +1,80 @@
 <form action="" #figForm="ngForm">
-  <div class="col-md-12">{{formData | json}}</div>
-  <div class="col-md-12">
-    <div class="form-group">
-      <label class="label-form">Nom de la figurine</label>
-      <input type="text" class="form-control" name="nom" required [(ngModel)]="formData.nom">
+    <div class="col-md-12">{{formData | json}}</div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="label-form">Nom de la figurine</label>
+            <input type="text" class="form-control" name="nom" required [(ngModel)]="formData.nom">
+        </div>
     </div>
-  </div>
-  <div class="col-md-4">
-    <div class="form-group">
-      <label class="label-form">Mouvement</label>
-      <input type="text" class="form-control" name="m" required [(ngModel)]="formData.m">
-    </div>
-    <div class="form-group">
-      <label class="label-form">Force</label>
-      <input type="text" class="form-control" name="s" required [(ngModel)]="formData.s">
-    </div>
-    <div class="form-group">
-      <label class="label-form">Attaque</label>
-      <input type="text" class="form-control" name="a" required [(ngModel)]="formData.a">
-    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="label-form">Mouvement</label>
+            <input type="text" class="form-control" name="m" required [(ngModel)]="formData.m">
+        </div>
+        <div class="form-group">
+            <label class="label-form">Force</label>
+            <input type="text" class="form-control" name="s" required [(ngModel)]="formData.s">
+        </div>
+        <div class="form-group">
+            <label class="label-form">Attaque</label>
+            <input type="text" class="form-control" name="a" required [(ngModel)]="formData.a">
+        </div>
 
 
-    <div class="form-group">
-      <label class="label-form">Nombre minimum de figurine</label>
-      <input type="number" class="form-control" name="min" required [(ngModel)]="formData.min">
+        <div class="form-group">
+            <label class="label-form">Nombre minimum de figurine</label>
+            <input type="number" class="form-control" name="min" required [(ngModel)]="formData.min">
+        </div>
     </div>
-  </div>
-  <div class="col-md-4">
-    <div class="form-group">
-      <label class="label-form">WS</label>
-      <input type="text" class="form-control" name="ws" required [(ngModel)]="formData.ws">
-    </div>
-    <div class="form-group">
-      <label class="label-form">Endurance</label>
-      <input type="text" class="form-control" name="t" required [(ngModel)]="formData.t">
-    </div>
-    <div class="form-group">
-      <label class="label-form">Commandement</label>
-      <input type="text" class="form-control" name="ld" required [(ngModel)]="formData.ld">
-    </div>
-    <div class="form-group">
-      <label class="label-form">Nombre maximum de figurine</label>
-      <input type="number" class="form-control" name="max" required [(ngModel)]="formData.max">
-    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="label-form">WS</label>
+            <input type="text" class="form-control" name="ws" required [(ngModel)]="formData.ws">
+        </div>
+        <div class="form-group">
+            <label class="label-form">Endurance</label>
+            <input type="text" class="form-control" name="t" required [(ngModel)]="formData.t">
+        </div>
+        <div class="form-group">
+            <label class="label-form">Commandement</label>
+            <input type="text" class="form-control" name="ld" required [(ngModel)]="formData.ld">
+        </div>
+        <div class="form-group">
+            <label class="label-form">Nombre maximum de figurine</label>
+            <input type="number" class="form-control" name="max" required [(ngModel)]="formData.max">
+        </div>
 
 
-  </div>
-  <div class="col-md-4">
-    <div class="form-group">
-      <label class="label-form">BS</label>
-      <input type="text" class="form-control" name="bs" required [(ngModel)]="formData.bs">
     </div>
-    <div class="form-group">
-      <label class="label-form">Point de vie</label>
-      <input type="text" class="form-control" name="w" required [(ngModel)]="formData.w">
-    </div>
-    <div class="form-group">
-      <label class="label-form">Sauvegarde</label>
-      <input type="text" class="form-control" name="sv" required [(ngModel)]="formData.sv">
-    </div>
-    <div class="form-group">
-      <label class="label-form">Point</label>
-      <input type="number" class="form-control" name="pointValue" required [(ngModel)]="formData.pointValue ">
-    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="label-form">BS</label>
+            <input type="text" class="form-control" name="bs" required [(ngModel)]="formData.bs">
+        </div>
+        <div class="form-group">
+            <label class="label-form">Point de vie</label>
+            <input type="text" class="form-control" name="w" required [(ngModel)]="formData.w">
+        </div>
+        <div class="form-group">
+            <label class="label-form">Sauvegarde</label>
+            <input type="text" class="form-control" name="sv" required [(ngModel)]="formData.sv">
+        </div>
+        <div class="form-group">
+            <label class="label-form">Point</label>
+            <input type="number" class="form-control" name="pointValue" required [(ngModel)]="formData.pointValue ">
+        </div>
 
 
-  </div>
-  <div class="col-md-12 text-center">
-    <div class="form-group">
-      <label class="label-form">Description de l'unité</label>
-      <textarea type="text" class="form-control" name="description" [(ngModel)]="formData.description"></textarea>
     </div>
-  </div>
-  <div class="col-md-12 text-center">
-    <button *ngIf="!newFig" class="col-md-3 col-md-offset-2 btn btn-danger " (click)="delete()">Supprimer</button>
-    <button *ngIf="newFig" class="col-md-3 col-md-offset-2 btn btn-primary " [disabled]="isFormInvalid(figForm) " (click)="addFigurineToUnit()">Ajouter</button>
-    <button *ngIf="!newFig" class="col-md-3 col-md-offset-2 btn btn-primary " [disabled]="isFormInvalid(figForm) " (click)="updateFigurineToUnit()">Mettre à jour</button>
-  </div>
+    <div class="col-md-12 text-center">
+        <div class="form-group">
+            <label class="label-form">Description de l'unité</label>
+            <textarea type="text" class="form-control" name="description" [(ngModel)]="formData.description"></textarea>
+        </div>
+    </div>
+    <div class="col-md-12 text-center">
+        <button *ngIf="!newFig" class="col-md-3 col-md-offset-2 btn btn-danger " (click)="delete()">Supprimer</button>
+        <button *ngIf="newFig" class="col-md-3 col-md-offset-2 btn btn-primary " [disabled]="isFormInvalid(figForm) " (click)="addFigurineToUnit()">Ajouter</button>
+        <button *ngIf="!newFig" class="col-md-3 col-md-offset-2 btn btn-primary " [disabled]="isFormInvalid(figForm) " (click)="updateFigurineToUnit()">Mettre à jour</button>
+    </div>
 </form>
